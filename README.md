@@ -347,3 +347,76 @@ cat sample.txt | python uniq.py -c
 
 -------------------------------------------------------------------------------------------------------------------------------
 
+Python Grep Tool
+
+A Python implementation of the Unix grep tool. This tool allows you to search files and directories for specific patterns, with options for case-insensitive search, inverted matches, and recursive directory traversal.
+Features
+
+    Basic Grep Functionality: Search for a specific pattern in one or more files.
+    Case Insensitive Search: Use the -i option to perform case-insensitive searches.
+    Inverted Match: Use the -v option to print lines that do not match the pattern.
+    Recursive Search: Use the -r option to search directories recursively.
+    Supports \d and \w in Patterns: Patterns like \d (digits) and \w (word characters) are supported.
+
+Usage
+
+bash
+
+python grep.py [OPTIONS] PATTERN FILES...
+
+Arguments
+
+    PATTERN: The regex pattern to search for in the files.
+    FILES: One or more files or directories to search in.
+
+Options
+
+    -r, --recursive: Recursively search directories.
+    -v, --invert: Invert the match, i.e., show lines that do not match the pattern.
+    -i, --ignore-case: Perform case-insensitive search.
+
+Examples
+Basic Search
+
+bash
+
+python grep.py 'search_term' file.txt
+
+This will search for the term 'search_term' in file.txt.
+Case-Insensitive Search
+
+bash
+
+python grep.py -i 'search_term' file.txt
+
+This will search for the term 'search_term' in file.txt ignoring case.
+Inverted Match
+
+bash
+
+python grep.py -v 'search_term' file.txt
+
+This will print all lines in file.txt that do not match 'search_term'.
+Recursive Search in a Directory
+
+bash
+
+python grep.py -r 'search_term' /path/to/directory
+
+This will search for the term 'search_term' in all files within the specified directory and its subdirectories.
+Combined Example
+
+bash
+
+python grep.py -rvi 'search_term' /path/to/directory
+
+This will perform a recursive, case-insensitive search and show lines that do not match 'search_term'.
+Installation
+
+No installation required. Simply clone the repository and run the script using Python 3.x.
+
+bash
+
+git clone https://github.com/your-username/grep-python.git
+cd grep-python
+python grep.py [OPTIONS] PATTERN FILES...

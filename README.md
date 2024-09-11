@@ -420,3 +420,111 @@ bash
 git clone https://github.com/your-username/grep-python.git
 cd grep-python
 python grep.py [OPTIONS] PATTERN FILES...
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+URL Shortener
+
+A simple URL shortener built using Flask and SQLite. Users can shorten URLs via a web interface, and the app provides a shortened URL for easy sharing.
+Features
+
+    Shorten long URLs
+    Redirect to the original URL when the shortened URL is accessed
+    Web UI for submitting and displaying shortened URLs
+    SQLite database to store URL mappings
+
+Demo
+
+(Replace this with an actual demo GIF/image if you have one)
+Prerequisites
+
+Before running the application, make sure you have the following installed:
+
+    Python 3.x
+    pip (Python package installer)
+
+Installation
+
+    Clone the repository:
+
+    bash
+
+git clone https://github.com/yourusername/url-shortener.git
+cd url-shortener
+
+Create a virtual environment (optional but recommended):
+
+bash
+
+python3 -m venv venv
+source venv/bin/activate  # For Windows use: venv\Scripts\activate
+
+Install the dependencies:
+
+bash
+
+pip install -r requirements.txt
+
+Create the SQLite database:
+
+bash
+
+    flask shell
+    from app import db
+    db.create_all()
+    exit()
+
+Usage
+
+    Run the Flask server:
+
+    bash
+
+    flask run
+
+    Access the application:
+
+    Open a browser and navigate to http://localhost:5000. You will see the UI for the URL shortener where you can input URLs and get a shortened link.
+
+Project Structure
+
+graphql
+
+url-shortener/
+│
+├── app.py                # Main Flask app
+├── templates/
+│   └── index.html        # HTML template for the web UI
+├── static/
+│   └── style.css         # Optional CSS for custom styling
+├── requirements.txt      # Python dependencies
+├── README.md             # Project documentation
+└── urls.db               # SQLite database (auto-generated)
+
+How It Works
+
+    The user submits a URL via the web form.
+    The server generates a unique 8-character short code for the URL.
+    The original URL and short code are stored in the SQLite database.
+    The user receives a shortened URL that points to the app.
+    When the shortened URL is accessed, the app looks up the corresponding original URL and redirects the user.
+
+API Endpoints
+1. /shorten (POST)
+
+Shorten a given URL.
+
+    Request body: url (the long URL)
+    Response: The shortened URL.
+
+2. /<short_code> (GET)
+
+Redirects to the original URL based on the short code.
+
+    Response: Redirect to the original long URL.
+
+Example
+
+    Input: https://www.example.com/some/long/url
+    Output: http://localhost:5000/abc12345
+    Visiting http://localhost:5000/abc12345 redirects to the original URL.

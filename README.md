@@ -1,3 +1,125 @@
+# Python Diff Tool
+
+This is a Python implementation of a `diff` tool that compares the differences between two files, based on the Myers algorithm (used by Git). The tool can find the **longest common subsequence (LCS)** between two strings, handle arrays of strings (i.e., lines from a file), and ultimately display the differences between two files in a format similar to the Unix `diff` command.
+
+## Features
+
+- **Longest Common Subsequence (LCS)**: Finds the common subsequence between two strings.
+- **Array of Strings Comparison**: Applies the LCS algorithm to arrays of strings (file lines).
+- **Diff Output**: Generates the differences between two files or arrays of strings, marking lines that are added, removed, or unchanged.
+- **Command Line Interface**: Compares two text files and prints the differences to the terminal.
+
+## Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Testing](#testing)
+4. [Examples](#examples)
+5. [Future Improvements](#future-improvements)
+
+## Installation
+
+To run this project locally, follow the steps below:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/python-diff-tool.git
+    cd python-diff-tool
+    ```
+
+2. Install Python (if not already installed):
+    - Ensure you have Python 3.5 or later installed on your machine.
+    - You can download it from [python.org](https://www.python.org/).
+
+3. Install any required packages (if needed):
+    ```bash
+    pip install -r requirements.txt
+    ```
+   *(Note: The tool doesn't require any external libraries by default.)*
+
+## Usage
+
+The Diff Tool can be run from the command line to compare two files. To execute it:
+
+```bash
+python diff_tool.py file1.txt file2.txt
+
+Output Format
+
+The tool will print out the differences between the files:
+
+    Lines removed from the first file are prefixed with <.
+    Lines added to the second file are prefixed with >.
+    Lines that remain unchanged are prefixed with a space.
+
+Command-Line Arguments
+
+    file1.txt: The original file.
+    file2.txt: The new file you want to compare with the original.
+
+Testing
+
+Unit tests are included to ensure the correctness of the LCS algorithm and the diff tool. To run the tests, use the following command:
+
+bash
+
+python -m unittest diff_tool.py
+
+Examples
+Example 1
+
+Comparing two simple files:
+
+file1.txt
+
+kotlin
+
+This is a test which contains:
+this is the lcs
+
+file2.txt
+
+kotlin
+
+this is the lcs
+we're testing
+
+Command:
+
+bash
+
+python diff_tool.py file1.txt file2.txt
+
+Output:
+
+kotlin
+
+< This is a test which contains:
+  this is the lcs
+> we're testing
+
+Example 2
+
+Comparing two arrays of strings:
+
+Input Arrays:
+
+python
+
+lines1 = ["A", "B", "C"]
+lines2 = ["A", "C", "D"]
+
+Output:
+
+css
+
+  A
+< B
+  C
+> D
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 Basic Web Server
 
 This project demonstrates the implementation of a basic HTTP web server in Python. The server listens for incoming client requests, processes them, and returns either static HTML files or a simple message based on the request. It supports basic HTTP/1.1 GET requests and serves documents from a specified directory.

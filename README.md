@@ -650,3 +650,72 @@ Example
     Input: https://www.example.com/some/long/url
     Output: http://localhost:5000/abc12345
     Visiting http://localhost:5000/abc12345 redirects to the original URL.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Custom Command Line Shell (ccsh)
+
+This project implements a custom command line shell named ccsh (Coding Challenges Shell), built in Python. The shell provides basic functionality such as executing system commands, handling pipes, managing command history, and responding to built-in commands like cd, pwd, exit, and history.
+
+Table of Contents
+
+	•	Overview
+	•	Features
+	•	Installation
+	•	Usage
+	•	Built-in Commands
+	•	Example
+	•	Command History
+	•	Signal Handling
+	•	Contributing
+	•	License
+
+Overview
+
+The ccsh shell allows users to interact with the underlying operating system by running commands, chaining them with pipes, and managing directories. It mimics the functionality of a typical Unix shell with some custom features. This project is designed as a coding challenge to build a working shell from scratch, implementing features such as command execution, piping, and command history management.
+
+Features
+
+	•	Execute System Commands: Run basic commands like ls, cat, pwd, etc.
+	•	Pipes Support: Chain commands using pipes (|) to pass output from one command to the next.
+	•	Built-in Commands: Implement commands like cd (change directory), pwd (print working directory), exit (terminate shell), and history (show command history).
+	•	Command History: Supports scrolling through previous commands using up/down arrow keys and saving history to disk.
+	•	Signal Handling: Captures signals such as SIGINT (Ctrl-C) to prevent shell termination.
+
+Installation
+
+	1.	Clone the repository:
+
+git clone https://github.com/your-username/ccsh.git
+cd ccsh
+
+	2.	Install required packages:
+No external packages are required, as this shell only relies on Python’s standard library.
+	3.	Run the shell:
+python ccsh.py
+
+Usage
+
+Once the shell is running, you can enter any command as you would in a normal shell. Commands are executed in the underlying operating system environment.
+
+uilt-in Commands
+
+	•	cd: Change the current directory.
+	•	Example: ccsh> cd /path/to/directory
+	•	pwd: Print the current working directory.
+	•	Example: ccsh> pwd
+	•	exit: Exit the shell.
+	•	history: Display the list of previously executed commands.
+
+Command History
+
+	•	The shell automatically saves command history to the user’s home directory in a file named .ccsh_history.
+	•	The command history is loaded when the shell starts, and previous commands can be accessed using the up/down arrow keys.
+	•	Use the history command to display the list of all commands executed in the current session.
+
+Signal Handling
+
+	•	Ctrl-C (SIGINT): When pressed, the signal will terminate the running command without exiting the shell itself.
+	•	This allows users to interrupt long-running commands but remain in the shell environment.
+
+-------------------------------------------------------------------------------
